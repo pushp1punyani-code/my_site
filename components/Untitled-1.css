@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+{html lang="en"}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Financial Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            width: 90%;
+            max-width: 1400px;
+            height: 85vh;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 80px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .slide-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .company-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .company-info {
+            flex: 1;
+            margin-left: 40px;
+        }
+
+        .company-name {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .company-meta {
+            display: flex;
+            gap: 30px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-label {
+            opacity: 0.6;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .data-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .data-row:last-child {
+            border-bottom: none;
+        }
+
+        .data-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .data-value {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .data-value.positive {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .data-value.negative {
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 0 20px;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 600;
+        }
+
+        /* Decorative elements */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Format numbers */
+        .currency-symbol {
+            font-size: 0.8em;
+            opacity: 0.7;
+            margin-right: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="presentation-container" id="presentation">
+        <!-- Slides will be generated here -->
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">←</button>
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">60</span>
+        </div>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">→</button>
+    </div>
+
+    <script>
+        const companiesData = [
+            { "company": "Seatrium Marine Systems", "country": "Coralis", "currency": "Shell", "rev2023": 73876542, "rev2022": 75432542, "revAvg": 92300000, "pl2023": 10901484, "pl2022": 11827082, "pl2021": 13369745, "pl2020": 14398187, "plAvg": 12624124.5 },
+            { "company": "Red Kat Solutions", "country": "Azurea", "currency": "Drop", "rev2023": 159901234, "rev2022": 159901234, "revAvg": 199900000, "pl2023": 15570317, "pl2022": -7150729, "pl2021": 14179893, "pl2020": 17829634, "plAvg": 10107279 },
+            { "company": "DroneShealth Technologies", "country": "Solara", "currency": "Ray", "rev2023": 177975002, "rev2022": 177975002, "revAvg": 222500000, "pl2023": 20040720, "pl2022": 20290560, "pl2021": 18915360, "pl2020": 18465120, "plAvg": 19427940 },
+            { "company": "ChaMar Engineering", "country": "Marinom", "currency": "Trident", "rev2023": 18422286, "rev2022": 18249502, "revAvg": 148500000, "pl2023": 14238100, "pl2022": 15723840, "pl2021": 17612940, "pl2020": 18207000, "plAvg": 16445470 },
+            { "company": "Zenton Innovations Ltd.", "country": "Tidalus", "currency": "Knot", "rev2023": 17789133, "rev2022": 13518816, "revAvg": 164600000, "pl2023": 15896327, "pl2022": 18546264, "pl2021": 17593274, "pl2020": 16260076, "plAvg": 17073985 },
+            { "company": "NexVision Steadystreams", "country": "Abyssia", "currency": "Scale", "rev2023": 75138240, "rev2022": 86629440, "revAvg": 153900000, "pl2023": 18825400, "pl2022": 14702631, "pl2021": 17825941, "pl2020": 16441222, "plAvg": 16948799 },
+            { "company": "NSAE Tech Corp.", "country": "Cyberion", "currency": "Bit", "rev2023": 40605502, "rev2022": 28741138, "revAvg": 160900000, "pl2023": 14485389, "pl2022": 17009066, "pl2021": 18082594, "pl2020": 20242527, "plAvg": 17454894 },
+            { "company": "MilDafe Systems Group", "country": "Neon", "currency": "Zenny", "rev2023": 22982424, "rev2022": 25456568, "revAvg": 132500000, "pl2023": 14000420, "pl2022": 12831687, "pl2021": 16332057, "pl2020": 15007264, "plAvg": 14542857 },
+            { "company": "Lubara Security Fabrics", "country": "Tektonia", "currency": "Gear", "rev2023": 18409434, "rev2022": 17270562, "revAvg": 138200000, "pl2023": 17530545, "pl2022": 13394171, "pl2021": 15225215, "pl2020": 16287146, "plAvg": 15609269 },
+            { "company": "Astron Microwave Solutions", "country": "Automata", "currency": "Volt", "rev2023": 98549260, "rev2022": 74393810, "revAvg": 121800000, "pl2023": 15455741, "pl2022": 14599457, "pl2021": 11997718, "pl2020": 15587689, "plAvg": 14410151 },
+            { "company": "TATX Aerospace", "country": "Chromia", "currency": "Pixel", "rev2023": 32826400, "rev2022": 31432000, "revAvg": 158600000, "pl2023": 16758865, "pl2022": 15315775, "pl2021": 18804562, "pl2020": 21024700, "plAvg": 17975976 },
+            { "company": "Mishron Metal Alloys Ltd.", "country": "Matrix", "currency": "Link", "rev2023": 38172800, "rev2022": 33817600, "revAvg": 159000000, "pl2023": 21083026, "pl2022": 15206987, "pl2021": 18600893, "pl2020": 16851792, "plAvg": 17935675 },
+            { "company": "Leonardis Corp.", "country": "Carbonia", "currency": "Diamond", "rev2023": 53213600, "rev2022": 62235200, "revAvg": 160500000, "pl2023": 15376660, "pl2022": 15017122, "pl2021": 16943217, "pl2020": 20634900, "plAvg": 16992975 },
+            { "company": "ASLSEN Electronics Ltd.", "country": "Quantalis", "currency": "Qubit", "rev2023": 45520272, "rev2022": 35376776, "revAvg": 165400000, "pl2023": 20993476, "pl2022": 17155123, "pl2021": 19305924, "pl2020": 1583152, "plAvg": 14759419 },
+            { "company": "Thalix Systems", "country": "Steelgrad", "currency": "Rivet", "rev2023": 66448228, "rev2022": 53829520, "revAvg": 146600000, "pl2023": -6605866, "pl2022": 19323849, "pl2021": 15494267, "pl2020": 17253646, "plAvg": 11366474 },
+            { "company": "BWXTek Industries", "country": "Tanishia", "currency": "Hearts", "rev2023": 50558904, "rev2022": 38956553, "revAvg": 165200000, "pl2023": 15458051, "pl2022": 19257804, "pl2021": 21901109, "pl2020": 17605737, "plAvg": 18555675 },
+            { "company": "Safronis Aerospace", "country": "Mitholos", "currency": "Myth", "rev2023": 16682614, "rev2022": 14941853, "revAvg": 141400000, "pl2023": 13225061, "pl2022": 15062660, "pl2021": 18879213, "pl2020": 17465675, "plAvg": 16158152 },
+            { "company": "HEIXO Group Inc.", "country": "Keshavara", "currency": "Lotus", "rev2023": 98937460, "rev2022": 91034043, "revAvg": 132300000, "pl2023": 13367182, "pl2022": 16655106, "pl2021": 16296056, "pl2020": 15733331, "plAvg": 15512919 },
+            { "company": "Woodwade Controls", "country": "Kavenia", "currency": "Verse", "rev2023": 105080033, "rev2022": 92164068, "revAvg": 137800000, "pl2023": 15762004, "pl2022": 17280762, "pl2021": 16109497, "pl2020": 18984852, "plAvg": 17034279 },
+            { "company": "Curtiss-White Corp.", "country": "Saatwyr", "currency": "Karma", "rev2023": 131602627, "rev2022": 118541035, "revAvg": 144800000, "pl2023": 19740394, "pl2022": 17781551, "pl2021": 16167445, "pl2020": 15799521, "plAvg": 17372228 },
+            { "company": "Yangzi Shipworks Holdings", "country": "Aethelgard", "currency": "Valor", "rev2023": 103802118, "rev2022": 94338195, "revAvg": 124400000, "pl2023": 15570317, "pl2022": -7150729, "pl2021": 14179893, "pl2020": 17829634, "plAvg": 10107279 },
+            { "company": "Bharadi Dynamics Ltd.", "country": "Valoria", "currency": "Sovereign", "rev2023": 106338333, "rev2022": 112827653, "revAvg": 139900000, "pl2023": 15950749, "pl2022": 17850522, "pl2021": 16362979, "pl2020": 16419940, "plAvg": 16646048 },
+            { "company": "H&K Engineering AG", "country": "Terrania", "currency": "Scepter", "rev2023": 108100736, "rev2022": 118669868, "revAvg": 144300000, "pl2023": 16215110, "pl2022": 17800480, "pl2021": 18045751, "pl2020": 17199025, "plAvg": 17315092 },
+            { "company": "AviCoptra PLC", "country": "Stonehold", "currency": "Mason", "rev2023": 116454582, "rev2022": 116454582, "revAvg": 141800000, "pl2023": 17468187, "pl2022": 16012505, "pl2021": 17153240, "pl2020": 15995491, "plAvg": 16657356 },
+            { "company": "Garden Reach Shipcraft Engineers", "country": "Ferrum", "currency": "Ingot", "rev2023": 121816505, "rev2022": 114964554, "revAvg": 140700000, "pl2023": 18272475, "pl2022": 17244683, "pl2021": 15287023, "pl2020": 16754689, "plAvg": 16889718 },
+            { "company": "COSHIPPING Dev Inc.", "country": "Aurum", "currency": "Doubloon", "rev2023": 108104221, "rev2022": 107369791, "revAvg": 132900000, "pl2023": 16215633, "pl2022": 16105468, "pl2021": 15040895, "pl2020": 16371141, "plAvg": 15933284 },
+            { "company": "Northgrove Systems", "country": "Praetoria", "currency": "Centurion", "rev2023": 131305600, "rev2022": 125728000, "revAvg": 152600000, "pl2023": 19695840, "pl2022": 18859200, "pl2021": 17568960, "pl2020": 17120160, "plAvg": 18311040 },
+            { "company": "Indria Systech", "country": "Regalia", "currency": "Crown", "rev2023": 137447369, "rev2022": 123192269, "revAvg": 145700000, "pl2023": 20617105, "pl2022": 18478840, "pl2021": 16398414, "pl2020": 15428685, "plAvg": 17730761 },
+            { "company": "General Dynamicus", "country": "Celestia", "currency": "Stardust", "rev2023": 133604800, "rev2022": 135270400, "revAvg": 161900000, "pl2023": 20040720, "pl2022": 20290560, "pl2021": 18915360, "pl2020": 18465120, "plAvg": 19427940 },
+            { "company": "SAB Aerospace", "country": "Lunaris", "currency": "Crescent", "rev2023": 138807929, "rev2022": 112413391, "revAvg": 138500000, "pl2023": 20821189, "pl2022": 16862008, "pl2021": 14891923, "pl2020": 16292611, "plAvg": 17216933 },
+            { "company": "Embria Aero", "country": "Arcanea", "currency": "Mana", "rev2023": 134680190, "rev2022": 129642702, "revAvg": 163900000, "pl2023": 20202028, "pl2022": 19446405, "pl2021": 19154411, "pl2020": 19885910, "plAvg": 19672189 },
+            { "company": "Xi'an Aero Group", "country": "Crystalia", "currency": "Prism", "rev2023": 174945573, "rev2022": 130463458, "revAvg": 169600000, "pl2023": 23575721, "pl2022": 21201188, "pl2021": 19505093, "pl2020": 17808998, "plAvg": 20522750 },
+            { "company": "AVIC Sheny Aircraft Ltd.", "country": "Nebulon", "currency": "Wisp", "rev2023": 117337804, "rev2022": 126634162, "revAvg": 141600000, "pl2023": 21236432, "pl2022": 17697026, "pl2021": 16281264, "pl2020": 15007078, "plAvg": 17555450 },
+            { "company": "Elbott Systems", "country": "Aetheria", "currency": "Halo", "rev2023": 141479581, "rev2022": 123828140, "revAvg": 152800000, "pl2023": 21385512, "pl2022": 19857976, "pl2021": 17719424, "pl2020": 16344641, "plAvg": 18826888 },
+            { "company": "Sturm & Rugel", "country": "Aquatilis", "currency": "Pearl", "rev2023": 99662215, "rev2022": 112744157, "revAvg": 143600000, "pl2023": 19092947, "pl2022": 16508939, "pl2021": 17083163, "pl2020": 17944499, "plAvg": 17657387 },
+            { "company": "HowMat Aerospace", "country": "Coralis", "currency": "Shell", "rev2023": 161795557, "rev2022": 144657368, "revAvg": 168200000, "pl2023": 20517271, "pl2022": 22703538, "pl2021": 19440955, "pl2020": 22703538, "plAvg": 21341325 },
+            { "company": "AeroViora Systems", "country": "Azurea", "currency": "Drop", "rev2023": 138310007, "rev2022": 120869207, "revAvg": 132900000, "pl2023": 18737828, "pl2022": 18206259, "pl2021": 17940474, "pl2020": 16611550, "plAvg": 17874028 },
+            { "company": "Diag Group", "country": "Solara", "currency": "Ray", "rev2023": 142356675, "rev2022": 117922712, "revAvg": 142200000, "pl2023": 18338987, "pl2022": 18196824, "pl2021": 16633035, "pl2020": 15780059, "plAvg": 17237226 },
+            { "company": "MTX Aero Engines", "country": "Marinom", "currency": "Trident", "rev2023": 161666037, "rev2022": 116860473, "revAvg": 151900000, "pl2023": 18375546, "pl2022": 18983002, "pl2021": 17919954, "pl2020": 15945721, "plAvg": 17806056 },
+            { "company": "Airbussel Technologies", "country": "Tidalus", "currency": "Knot", "rev2023": 137589197, "rev2022": 129962088, "revAvg": 152500000, "pl2023": 19974631, "pl2022": 18144894, "pl2021": 17534981, "pl2020": 18297372, "plAvg": 18487969 },
+            { "company": "KBRX Global", "country": "Abyssia", "currency": "Scale", "rev2023": 116905313, "rev2022": 105070693, "revAvg": 135000000, "pl2023": 17686896, "pl2022": 17416867, "pl2021": 14176520, "pl2020": 15391650, "plAvg": 16167983 },
+            { "company": "Amentron Group", "country": "Cyberion", "currency": "Bit", "rev2023": 129547472, "rev2022": 121451317, "revAvg": 140100000, "pl2023": 19747737, "pl2022": 18207133, "pl2021": 16106310, "pl2020": 15265981, "plAvg": 17331790 },
+            { "company": "Dassaul Aviation", "country": "Neon", "currency": "Zenny", "rev2023": 133981096, "rev2022": 103234865, "revAvg": 169400000, "pl2023": 24565095, "pl2022": 23887437, "pl2021": -10164867, "pl2020": 18296761, "plAvg": 14146107 },
+            { "company": "Bombarder Aero Inds.", "country": "Tektonia", "currency": "Gear", "rev2023": 148546593, "rev2022": 137811348, "revAvg": 159000000, "pl2023": 21467573, "pl2022": 19877382, "pl2021": 18287192, "pl2020": 16697001, "plAvg": 19082287 },
+            { "company": "Science Apps Int'l Corp.", "country": "Automata", "currency": "Volt", "rev2023": 116868280, "rev2022": 116208841, "revAvg": 146500000, "pl2023": 20660290, "pl2022": 19195021, "pl2021": 17583226, "pl2020": 16117957, "plAvg": 18389123 },
+            { "company": "VSelex Corporation", "country": "Chromia", "currency": "Pixel", "rev2023": 151720589, "rev2022": 120968293, "revAvg": 135600000, "pl2023": 17633794, "pl2022": 15734770, "pl2021": 19397174, "pl2020": 13700102, "plAvg": 16616460 },
+            { "company": "Boeing Defence & Space", "country": "Matrix", "currency": "Link", "rev2023": 111748560, "rev2022": 130693920, "revAvg": 143400000, "pl2023": 17929078, "pl2022": 17355347, "pl2021": -8494751, "pl2020": -9646241, "plAvg": 4285858 },
+            { "company": "Rheinmetallic Group", "country": "Carbonia", "currency": "Diamond", "rev2023": 110689398, "rev2022": 81498435, "revAvg": 102800000, "pl2023": 10901484, "pl2022": 11827082, "pl2021": 13369745, "pl2020": 14398187, "plAvg": 12624125 },
+            { "company": "Mercurius Systems Inc.", "country": "Quantalis", "currency": "Qubit", "rev2023": 93831597, "rev2022": 109556301, "revAvg": 130800000, "pl2023": 17007034, "pl2022": 13736450, "pl2021": 15698800, "pl2020": 16091270, "plAvg": 15633389 },
+            { "company": "Kratos Security Solutions", "country": "Steelgrad", "currency": "Rivet", "rev2023": 95783114, "rev2022": 87363326, "revAvg": 102300000, "pl2023": 14318728, "pl2022": 11250429, "pl2021": 11659536, "pl2020": 12580025, "plAvg": 12452180 },
+            { "company": "Mazagon Docks Ltd.", "country": "Tanishia", "currency": "Hearts", "rev2023": 118891552, "rev2022": 98452432, "revAvg": 111200000, "pl2023": 12448836, "pl2022": 14449542, "pl2021": 11559633, "pl2020": 12226536, "plAvg": 12671137 },
+            { "company": "Austale Marine Ltd.", "country": "Mitholos", "currency": "Myth", "rev2023": 99919049, "rev2022": 107819616, "revAvg": 128700000, "pl2023": 18018602, "pl2022": 14157473, "pl2021": 16474150, "pl2020": 16731559, "plAvg": 16345446 },
+            { "company": "Booz Allan Holding Co.", "country": "Keshavara", "currency": "Lotus", "rev2023": 117737170, "rev2022": 104792078, "revAvg": 123700000, "pl2023": 13604827, "pl2022": 16078432, "pl2021": 17315235, "pl2020": 14099548, "plAvg": 15274511 },
+            { "company": "Huntgrove Ingalls Indust.", "country": "Kavenia", "currency": "Verse", "rev2023": 121483015, "rev2022": 120576293, "revAvg": 142200000, "pl2023": 19909455, "pl2022": 15643143, "pl2021": 14647670, "pl2020": 19198403, "plAvg": 17349668 },
+            { "company": "AeroIndus Development Corp.", "country": "Saatwyr", "currency": "Karma", "rev2023": 147725888, "rev2022": 146988723, "revAvg": 155500000, "pl2023": 17102389, "pl2022": 20211914, "pl2021": 23321439, "pl2020": 19434533, "plAvg": 20017569 },
+            { "company": "OHBX Space Systems", "country": "Aethelgard", "currency": "Valor", "rev2023": 97483359, "rev2022": 101960787, "revAvg": 118500000, "pl2023": 15646636, "pl2022": 14461285, "pl2021": 16594917, "pl2020": 13631539, "plAvg": 15083594 },
+            { "company": "Seniorix PLC", "country": "Valoria", "currency": "Sovereign", "rev2023": 145955005, "rev2022": 143887709, "revAvg": 160900000, "pl2023": 23327379, "pl2022": 19948931, "pl2021": 21879473, "pl2020": 18822782, "plAvg": 20994641 },
+            { "company": "Triumph Aerogroup", "country": "Terrania", "currency": "Scepter", "rev2023": 124048663, "rev2022": 117170469, "revAvg": 148900000, "pl2023": 18320440, "pl2022": 19958850, "pl2021": 21597260, "pl2020": 19958850, "plAvg": 19958850 },
+            { "company": "Textronic Inc.", "country": "Stonehold", "currency": "Mason", "rev2023": 118338950, "rev2022": 118110427, "revAvg": 142000000, "pl2023": 17754919, "pl2022": 19175312, "pl2021": 20595706, "pl2020": 14914132, "plAvg": 18110017 }
+        ];
+
+        let currentSlideIndex = 0;
+
+        function formatCurrency(value, currency) {
+            return new Intl.NumberFormat('en-US').format(value);
+        }
+
+        function getInitials(companyName) {
+            const words = companyName.split(' ');
+            if (words.length >= 2) {
+                return words[0][0] + words[1][0];
+            }
+            return companyName.substring(0, 2);
+        }
+
+        function getLogoColor(index) {
+            const colors = [
+                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+                'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+                'linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%)',
+                'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+                'linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%)',
+            ];
+            return colors[index % colors.length];
+        }
+
+        function createSlide(company, index) {
+            const slide = document.createElement('div');
+            slide.className = 'slide';
+            if (index === 0) slide.classList.add('active');
+
+            slide.innerHTML = `
+                <div class="slide-number">${index + 1} / ${companiesData.length}</div>
+                
+                <div class="slide-header">
+                    <div class="company-logo" style="background: ${getLogoColor(index)}">
+                        ${getInitials(company.company)}
+                    </div>
+                    <div class="company-info">
+                        <div class="company-name">${company.company}</div>
+                        <div class="company-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Origin:</span>
+                                <span class="meta-value">${company.country}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Currency:</span>
+                                <span class="meta-value">${company.currency}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-content">
+                    <div class="data-section">
+                        <div class="section-title">
+                            <div class="section-icon"></div>
+                            Revenue Overview
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">2023 Revenue</span>
+                            <span class="data-value">${formatCurrency(company.rev2023)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">2022 Revenue</span>
+                            <span class="data-value">${formatCurrency(company.rev2022)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Average Revenue</span>
+                            <span class="data-value">${formatCurrency(company.revAvg)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                    </div>
+
+                    <div class="data-section">
+                        <div class="section-title">
+                            <div class="section-icon"></div>
+                            Profit/Loss Analysis
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">2023 P/L</span>
+                            <span class="data-value ${company.pl2023 >= 0 ? 'positive' : 'negative'}">${formatCurrency(company.pl2023)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">2022 P/L</span>
+                            <span class="data-value ${company.pl2022 >= 0 ? 'positive' : 'negative'}">${formatCurrency(company.pl2022)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">2021 P/L</span>
+                            <span class="data-value ${company.pl2021 >= 0 ? 'positive' : 'negative'}">${formatCurrency(company.pl2021)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">2020 P/L</span>
+                            <span class="data-value ${company.pl2020 >= 0 ? 'positive' : 'negative'}">${formatCurrency(company.pl2020)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Average P/L</span>
+                            <span class="data-value ${company.plAvg >= 0 ? 'positive' : 'negative'}">${formatCurrency(company.plAvg)} <span class="currency-symbol">${company.currency}</span></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return slide;
+        }
+
+        function initPresentation() {
+            const container = document.getElementById('presentation');
+            companiesData.forEach((company, index) => {
+                const slide = createSlide(company, index);
+                container.appendChild(slide);
+            });
+            updateNavigation();
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlideIndex].classList.remove('active');
+
+            currentSlideIndex += direction;
+
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = slides.length - 1;
+            }
+            if (currentSlideIndex < 0) {
+                currentSlideIndex = 0;
+            }
+
+            slides[currentSlideIndex].classList.add('active');
+            updateNavigation();
+        }
+
+        function updateNavigation() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').disabled = currentSlideIndex === companiesData.length - 1;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize presentation on load
+        initPresentation();
+    </script>
+</body>
+
+</html>

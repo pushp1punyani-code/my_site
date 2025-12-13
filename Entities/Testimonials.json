@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "client_name": "Rajesh Sharma",
+    "event_type": "Wedding",
+    "event_date": "2024-10-15",
+    "guests_count": 500,
+    "rating": 5,
+    "review_text": "Arora Caterers made our wedding day absolutely perfect! The food was exquisite, the presentation was elegant, and the service was impeccable. Every guest complimented the catering. Highly recommended!",
+    "location": "Nagpur Central",
+    "is_featured": true
+  },
+  {
+    "id": 2,
+    "client_name": "Priya Patel",
+    "event_type": "Corporate Event",
+    "event_date": "2024-09-20",
+    "guests_count": 300,
+    "rating": 5,
+    "review_text": "We hired Arora Caterers for our annual corporate event and they delivered beyond expectations. The menu was diverse, quality was consistent, and the team was professional throughout.",
+    "location": "Ramdaspeth",
+    "is_featured": true
+  },
+  {
+    "id": 3,
+    "client_name": "Amit Deshmukh",
+    "event_type": "Religious Function",
+    "event_date": "2024-08-05",
+    "guests_count": 200,
+    "rating": 5,
+    "review_text": "For our Satvik meal requirements, Arora Caterers was the perfect choice. They understood our dietary preferences and prepared authentic, delicious food. Pure vegetarian excellence indeed!",
+    "location": "Sitabuldi",
+    "is_featured": true
+  },
+  {
+    "id": 4,
+    "client_name": "Neha Gupta",
+    "event_type": "Birthday",
+    "event_date": "2024-07-10",
+    "guests_count": 150,
+    "rating": 5,
+    "review_text": "My daughter's 21st birthday party was made special with Arora Caterers. The customized menu was innovative and all guests were impressed. Definitely booking them again!",
+    "location": "Bhandara",
+    "is_featured": false
+  },
+  {
+    "id": 5,
+    "client_name": "Vikram Singh",
+    "event_type": "Wedding",
+    "event_date": "2024-06-25",
+    "guests_count": 450,
+    "rating": 5,
+    "review_text": "From the first consultation to the last dessert served, Arora Caterers was professional and attentive. They handled our large guest list with ease. Thank you for making our wedding memorable!",
+    "location": "Nagpur",
+    "is_featured": false
+  },
+  {
+    "id": 6,
+    "client_name": "Sunita Verma",
+    "event_type": "Anniversary",
+    "event_date": "2024-05-12",
+    "guests_count": 100,
+    "rating": 4,
+    "review_text": "We celebrated our 25th anniversary with Arora Caterers. The intimate menu and presentation were perfect. Wonderful experience and great value for money.",
+    "location": "South Nagpur",
+    "is_featured": false
+  },
+  {
+    "id": 7,
+    "client_name": "Manish Joshi",
+    "event_type": "Corporate Event",
+    "event_date": "2024-04-08",
+    "guests_count": 250,
+    "rating": 5,
+    "review_text": "Our client appreciation event was a huge success with Arora Caterers. The live stations were interactive and the food quality was outstanding. Highly professional team!",
+    "location": "Itwari",
+    "is_featured": false
+  },
+  {
+    "id": 8,
+    "client_name": "Kavya Nair",
+    "event_type": "Wedding",
+    "event_date": "2024-03-18",
+    "guests_count": 550,
+    "rating": 5,
+    "review_text": "Arora Caterers exceeded all our expectations for our wedding. The multi-cuisine spread was incredible, and the attention to detail was remarkable. Worth every penny!",
+    "location": "Central Nagpur",
+    "is_featured": true
+  },
+  {
+    "id": 9,
+    "client_name": "Arun Kumar",
+    "event_type": "Religious Function",
+    "event_date": "2024-02-28",
+    "guests_count": 180,
+    "rating": 5,
+    "review_text": "For our temple function, we needed authentic traditional vegetarian food. Arora Caterers delivered perfectly with Satvik options and traditional recipes. Exceptional!",
+    "location": "Dhantoli",
+    "is_featured": false
+  },
+  {
+    "id": 10,
+    "client_name": "Sneha Malhotra",
+    "event_type": "Birthday",
+    "event_date": "2024-01-14",
+    "guests_count": 120,
+    "rating": 5,
+    "review_text": "Our son's birthday bash was made special by Arora Caterers. Creative menu, beautiful presentation, and excellent service. The kids loved the food! Booking them again for sure.",
+    "location": "Aman Nagar",
+    "is_featured": false
+  },
+  {
+    "id": 11,
+    "client_name": "Dr. Rajesh Pillai",
+    "event_type": "Corporate Event",
+    "event_date": "2023-12-10",
+    "guests_count": 280,
+    "rating": 4,
+    "review_text": "Professional catering service for our medical conference. The food was fresh, well-presented, and the service staff was courteous. Good coordination throughout the event.",
+    "location": "Ramdaspeth",
+    "is_featured": false
+  },
+  {
+    "id": 12,
+    "client_name": "Ananya Saxena",
+    "event_type": "Wedding",
+    "event_date": "2023-11-05",
+    "guests_count": 480,
+    "rating": 5,
+    "review_text": "From engagement to wedding, Arora Caterers catered all our events. Consistent quality, innovative menus, and impeccable service. They are now our go-to caterers!",
+    "location": "Nagpur",
+    "is_featured": true
+  },
+  {
+    "id": 13,
+    "client_name": "Sanjay Menon",
+    "event_type": "Anniversary",
+    "event_date": "2023-10-20",
+    "guests_count": 80,
+    "rating": 5,
+    "review_text": "We celebrated our 30th anniversary with close family and friends. Arora Caterers made it special with an intimate, customized menu. Elegant and delicious!",
+    "location": "Sitabuldi",
+    "is_featured": false
+  },
+  {
+    "id": 14,
+    "client_name": "Pooja Sharma",
+    "event_type": "Religious Function",
+    "event_date": "2023-09-15",
+    "guests_count": 220,
+    "rating": 5,
+    "review_text": "Our Diwali celebration was made special with Arora Caterers. The traditional sweets and savories were authentic and delicious. Great cultural understanding!",
+    "location": "Chandola",
+    "is_featured": false
+  },
+  {
+    "id": 15,
+    "client_name": "Harsh Desai",
+    "event_type": "Corporate Event",
+    "event_date": "2023-08-22",
+    "guests_count": 320,
+    "rating": 4,
+    "review_text": "Our company's product launch event catering was handled well. Good variety, professional presentation, and timely service. Team did a good job overall.",
+    "location": "Itwari",
+    "is_featured": false
+  }
+]
