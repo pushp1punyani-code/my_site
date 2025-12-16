@@ -63,46 +63,6 @@ export default function Menu() {
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="py-8 px-4 bg-white sticky top-0 z-40 shadow-md">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-4">
-            {/* Cuisine Filter */}
-            <div>
-              <p className="text-sm font-semibold text-gray-600 mb-2">Cuisine Type:</p>
-              <Tabs value={activeCuisine} onValueChange={setActiveCuisine}>
-                <TabsList className="bg-[#FAF9F6] flex-wrap h-auto">
-                  {cuisineTypes.map(cuisine => (
-                    <TabsTrigger key={cuisine} value={cuisine} className="cursor-pointer data-[state=active]:bg-[#8B1538] data-[state=active]:text-white">
-                      {cuisine === 'all' ? 'All Cuisines' : cuisine}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-              </Tabs>
-            </div>
-
-            {/* Category Filter */}
-            <div>
-              <p className="text-sm font-semibold text-gray-600 mb-2">Category:</p>
-              <div className="flex gap-2 overflow-x-auto pb-2">
-                {categories.map(category => (
-                  <button
-                    key={category}
-                    onClick={() => setActiveCategory(category)}
-                    className={`cursor-pointer px-4 py-2 rounded-full font-medium text-sm whitespace-nowrap transition-all ${
-                      activeCategory === category
-                        ? 'bg-[#8B1538] text-white'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                    }`}
-                  >
-                    {category === 'all' ? 'All Items' : category}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Menu Items Grid */}
       <section className="py-12 px-4">

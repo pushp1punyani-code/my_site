@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
     const router=useRouter();
   return (
-    <div className="relative h-[90vh] overflow-hidden">
+    <div className="relative h-[98vh] overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center"

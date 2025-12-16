@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Owners from '../../components/Owners'
 import { Award, Heart, ShieldCheck, Users, Sparkles, TrendingUp } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 export default function About() {
@@ -91,6 +92,9 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Owners Section */}
+      <Owners />
 
       {/* Values Section */}
       <section className="py-16 px-4 bg-[#FAF9F6]">
