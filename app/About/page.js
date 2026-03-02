@@ -226,7 +226,7 @@ export default function About() {
             {[
               { icon: TrendingUp, number: '47+', label: 'Years of Excellence' },
               { icon: Users, number: '20000+', label: 'Events Catered' },
-              { icon: Heart, number: '100000+', label: 'Happy Clients' },
+              { icon: Heart, number: '20000+', label: 'Happy Clients' },
               { icon: Award, number: '100%', label: 'Pure Vegetarian' }
             ].map((stat, index) => {
               const Icon = stat.icon;

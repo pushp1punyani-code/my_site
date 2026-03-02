@@ -2,218 +2,110 @@
   {
     "id": 1,
     "name": "Starters",
-    "description": "From crispy delights to savory treats, find the perfect opening act for your meal in our Starters collection.",
-    "image_url": "/images/menu/paneer_tikka.jpg"
+    "description": "Kick off your feast with a tempting selection of crispy, grilled, and bite-sized starters packed with bold flavors."
+    
   },
   {
-    "id": 2,
-    "name": "Main Course",
-    "description": "The main event! Dive into our signature dishes, featuring fresh ingredients and bold, satisfying flavors designed to be the star of your meal.",
-    "image_url": "/images/menu/paneer_tikka.jpg"
+    "id": 20,
+    "name": "Chaat Counter",
+    "description": "A burst of Indian street flavors featuring tangy, spicy, and crunchy chaats prepared fresh for an irresistible experience."
+    
+  },
+  {
+    "id": 19,
+    "name": "Soup",
+    "description": "Warm, comforting bowls of freshly prepared soups that set the perfect tone for a wholesome meal."
+    
   },
   {
     "id": 3,
     "name": "Fruit Counter",
-    "description": "A refreshing pause. Cleanse your palate with our selection of juicy, fresh-cut fruits perfect for a light indulgence.",
-    "image_url": "/images/menu/paneer_tikka.jpg"
-  },
-  {
-    "id": 4,
-    "name": "Mocktail Counter",
-    "description": "Raise a glass! Celebrate the moment with our zesty, sweet, and tangy concoctions that keep the party going.",
-    "image_url": "/images/menu/paneer_tikka.jpg"
-
-  },
-  {
-    "id": 5,
-    "name": "Dal Makhani",
-    "category": "Dal & Curries",
-    "cuisine_type": "North Indian",
-    "description": "Black lentils cooked with cream and butter",
-    "price": 280,
-    "isVegetarian": true,
-    "isJainFriendly": true,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "description": "A refreshing spread of fresh-cut seasonal fruits, ideal for a light, healthy, and refreshing indulgence."
+    
   },
   {
     "id": 6,
-    "name": "Veg Biryani",
-    "category": "Rice & Biryani",
-    "cuisine_type": "North Indian",
-    "description": "Fragrant rice with mixed vegetables and spices",
-    "price": 290,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Medium"
+    "name": "Mocktail Counter",
+    "description": "Colorful and refreshing non-alcoholic mocktails blended with fresh fruits, herbs, and fizz to elevate your celebration."
+  },
+  {
+    "id": 4,
+    "name": "Juice & Shakes",
+    "description": "A delightful range of freshly squeezed juices and creamy shakes made with premium fruits and ingredients."
+  },
+  {
+    "id": 2,
+    "name": "Main Course",
+    "description": "A lavish spread of rich gravies, classic preparations, and hearty dishes crafted to be the highlight of your meal."
+  },
+  {
+    "id": 5,
+    "name": "Rice & Biryani",
+    "description": "Aromatic rice dishes and flavorful biryanis cooked with fragrant spices for a satisfying and indulgent experience."
   },
   {
     "id": 7,
-    "name": "Masala Dosa",
-    "category": "South Indian",
-    "cuisine_type": "South Indian",
-    "description": "Crispy rice and lentil crepe with spiced potato filling",
-    "price": 250,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Medium"
+    "name": "Dal & Curries",
+    "description": "Comforting dals and richly spiced curries slow-cooked to perfection, offering authentic and homely flavors."
   },
   {
     "id": 8,
-    "name": "Idli Sambar",
-    "category": "South Indian",
-    "cuisine_type": "South Indian",
-    "description": "Steamed rice cakes with vegetable stew",
-    "price": 200,
-    "isVegetarian": true,
-    "isJainFriendly": true,
-    "isSatvik": true,
-    "spicyLevel": "Mild"
+    "name": "Breads",
+    "description": "An assortment of soft, fluffy, and oven-fresh Indian breads that perfectly complement every curry."
   },
   {
     "id": 9,
-    "name": "Uttapam",
-    "category": "South Indian",
-    "cuisine_type": "South Indian",
-    "description": "Thick savory rice pancake with vegetables",
-    "price": 220,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "name": "South Indian",
+    "description": "Traditional South Indian delicacies featuring dosas, idlis, uttapams, and aromatic accompaniments."
   },
   {
     "id": 10,
-    "name": "Butter Naan",
-    "category": "Breads",
-    "cuisine_type": "North Indian",
-    "description": "Traditional soft bread with butter",
-    "price": 80,
-    "isVegetarian": true,
-    "isJainFriendly": true,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "name": "Italian",
+    "description": "Classic Italian favorites including pastas, sauces, and baked dishes infused with rich herbs and cheeses."
   },
   {
     "id": 11,
-    "name": "Pani Puri",
-    "category": "Live Counters",
-    "cuisine_type": "North Indian",
-    "description": "Crispy shells with spiced potatoes and pani",
-    "price": 120,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Spicy"
+    "name": "Live Counters",
+    "description": "Interactive live food stations where dishes are freshly prepared on the spot for a personalized dining experience."
   },
   {
     "id": 12,
-    "name": "Pav Bhaji",
-    "category": "Live Counters",
-    "cuisine_type": "Maharashtrian",
-    "description": "Mixed vegetable curry with pav bread",
-    "price": 150,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Medium"
+    "name": "Pan Asian",
+    "description": "A fusion of Asian flavors featuring wok-tossed dishes, sauces, and spices inspired by the Far East."
   },
   {
     "id": 13,
-    "name": "Gulab Jamun",
-    "category": "Desserts",
-    "cuisine_type": "North Indian",
-    "description": "Milk solids dumplings in sugar syrup",
-    "price": 100,
-    "isVegetarian": true,
-    "isJainFriendly": true,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "name": "Mangolian",
+    "description": "Flavor-packed Mongolian-style dishes prepared with fresh vegetables, sauces, and live stir-fry techniques."
   },
   {
     "id": 14,
-    "name": "Ras Malai",
-    "category": "Desserts",
-    "cuisine_type": "North Indian",
-    "description": "Cottage cheese dumplings in sweetened condensed milk",
-    "price": 120,
-    "isVegetarian": true,
-    "isJainFriendly": true,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "name": "Chinese",
+    "description": "Popular Indo-Chinese and authentic Chinese dishes offering the perfect balance of spice, crunch, and flavor."
   },
   {
     "id": 15,
-    "name": "Jalebi",
-    "category": "Desserts",
-    "cuisine_type": "North Indian",
-    "description": "Spiraled orange sweet in sugar syrup",
-    "price": 80,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "name": "Burmese",
+    "description": "Authentic Burmese-inspired dishes showcasing subtle spices, fresh ingredients, and comforting flavors."
   },
   {
     "id": 16,
-    "name": "Mango Lassi",
-    "category": "Beverages",
-    "cuisine_type": "North Indian",
-    "description": "Yogurt-based drink with mango",
-    "price": 100,
-    "isVegetarian": true,
-    "isJainFriendly": true,
-    "isSatvik": true,
-    "spicyLevel": "Mild"
+    "name": "Coffee Bar",
+    "description": "A premium coffee station serving freshly brewed coffees, cappuccinos, and specialty blends."
   },
   {
     "id": 17,
-    "name": "Masala Chai",
-    "category": "Beverages",
-    "cuisine_type": "North Indian",
-    "description": "Spiced Indian tea with milk",
-    "price": 50,
-    "isVegetarian": true,
-    "isJainFriendly": true,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "name": "Sweets",
+    "description": "Traditional Indian sweets prepared with authentic recipes, rich ingredients, and timeless flavors."
   },
   {
     "id": 18,
-    "name": "Vegetable Fried Rice",
-    "category": "Chinese",
-    "cuisine_type": "Chinese",
-    "description": "Rice with mixed vegetables and soy sauce",
-    "price": 240,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Medium"
+    "name": "Desserts",
+    "description": "A tempting collection of modern and classic desserts designed to add a sweet ending to your meal."
   },
   {
-    "id": 19,
-    "name": "Vegetable Manchurian",
-    "category": "Chinese",
-    "cuisine_type": "Chinese",
-    "description": "Fried vegetable dumplings in spicy sauce",
-    "price": 260,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Spicy"
-  },
-  {
-    "id": 20,
-    "name": "Spring Roll",
-    "category": "Starters",
-    "cuisine_type": "Chinese",
-    "description": "Crispy rolls with vegetable filling",
-    "price": 180,
-    "isVegetarian": true,
-    "isJainFriendly": false,
-    "isSatvik": false,
-    "spicyLevel": "Mild"
+    "id": 21,
+    "name": "Paan Counter",
+    "description": "A traditional paan counter offering a variety of refreshing and flavorful paans for the perfect after-meal experience."
   }
 ]

@@ -64,11 +64,11 @@ export default function Menu() {
       </section>
 
       {/* Filters */}
-      <section className="py-8 px-4 bg-white sticky top-0 z-40 shadow-md">
+      {/* <section className="py-8 px-4 bg-white sticky top-0 z-40 shadow-md">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-4">
+          <div className="space-y-4"> */}
             {/* Cuisine Filter */}
-            <div>
+            {/* <div>
               <p className="text-sm font-semibold text-gray-600 mb-2">Cuisine Type:</p>
               <Tabs value={activeCuisine} onValueChange={setActiveCuisine}>
                 <TabsList className="bg-[#FAF9F6] flex-wrap h-auto">
@@ -79,10 +79,10 @@ export default function Menu() {
                   ))}
                 </TabsList>
               </Tabs>
-            </div>
+            </div> */}
 
             {/* Category Filter */}
-            <div>
+            {/* <div>
               <p className="text-sm font-semibold text-gray-600 mb-2">Category:</p>
               <div className="flex gap-2 overflow-x-auto pb-2">
                 {categories.map(category => (
@@ -102,7 +102,7 @@ export default function Menu() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Menu Items Grid */}
       <section className="py-12 px-4">
@@ -133,10 +133,10 @@ export default function Menu() {
                   transition={{ delay: index * 0.05 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all group"
                 >
-                  {item.image_url && (
-                    <div className="relative h-48 overflow-hidden">
+                  {item.name && (
+                    <div className="relative h-60 overflow-hidden">
                       <img 
-                        src={item.image_url}
+                        src={`./${item.name}.avif`}
                         alt={item.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />

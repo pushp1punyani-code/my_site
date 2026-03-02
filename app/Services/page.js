@@ -77,7 +77,7 @@ const additionalServices = [
   'Professional waiters & kitchen staff',
   'Buffet setup & decoration',
   'Live cooking stations',
-  'Pre-event tasting sessions'
+  'Pure Veg'
 ];
 
 export default function Services() {
